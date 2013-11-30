@@ -1,40 +1,51 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+  var cssPaths = ["assets/css", "bower_components/bootstrap/less", "bower_components/font-awesome/less"];
+
   // Project configuration.
   grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-      ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-    // Task configuration.
-    bower: { 
+    bower: {
       options: {
         copy: false
       },
-      install: {
-      }
+      install: {}
     },
     concat: {
       options: {
-        banner: '<%= banner %>',
         stripBanners: true
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
-        dest: 'build/<%= pkg.name %>.js'
+        src: ['assets/js/<%= pkg.name %>.js'],
+        dest: 'build/js/<%= pkg.name %>.js'
       }
     },
     uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
+        dest: 'build/js/<%= pkg.name %>.min.js'
+      }
+    },
+    less: {
+      development: {
+        options: {
+          paths: cssPaths,
+          banner: '<%= banner %>'
+        },
+        files: {
+          "build/css/main.css": "assets/css/main.less"
+        }
+      },
+      production: {
+        options: {
+          paths: cssPaths,
+          yuicompress: true
+        },
+        files: {
+          "build/css/main.css": "assets/css/main.less"
+        }
       }
     },
     jshint: {
@@ -56,8 +67,8 @@ module.exports = function(grunt) {
       gruntfile: {
         src: 'Gruntfile.js'
       },
-      lib: {
-        src: ['lib/**/*.js']
+      js: {
+        src: ['assets/**/*.js']
       }
     },
     watch: {
@@ -65,9 +76,13 @@ module.exports = function(grunt) {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
-      lib_test: {
-        files: '<%= jshint.lib.src %>',
-        tasks: ['jshint:lib']
+      js: {
+        files: '<%= jshint.js.src %>',
+        tasks: ['jshint:js']
+      },
+      less: {
+        files: 'assets/**/*.less',
+        tasks: ['less:development']
       }
     }
   });
@@ -77,9 +92,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-bower-task');
 
-  // Default task.
-  grunt.registerTask('default', ['bower', 'jshint', 'concat', 'uglify']);
+  // Default task(s).
+  grunt.registerTask('default', ['bower', 'concat', 'jshint', 'less:development']);
 
+  // Production task
+  grunt.registerTask('production', ['default', 'uglify', 'less:production']);
 };

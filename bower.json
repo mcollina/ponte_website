@@ -1,9 +1,7 @@
 {
   "name": "ponte_website",
   "version": "0.0.0",
-  "authors": [
-    "Matteo Collina <matteo.collina@gmail.com>"
-  ],
+  "author": "Matteo Collina <matteo.collina@gmail.com>",
   "description": "Ponte's Website @ Eclipse.org",
   "license": "MIT",
   "private": true,
@@ -15,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.0.2"
+    "bootstrap": "~3.0.2",
+    "font-awesome": "~4.0.3"
   }
 }

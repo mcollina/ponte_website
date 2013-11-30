@@ -2,18 +2,20 @@
   "name": "ponte_website",
   "version": "0.0.0",
   "description": "Ponte's Website @ Eclipse.org",
+  "homepage": "http://eclipse.org/ponte",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Matteo Collina <hello@matteocollina.com>",
   "license": "MIT",
   "dependencies": {
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-jshint": "~0.7.2",
     "grunt": "~0.4.2",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-uglify": "~0.2.7"
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-less": "~0.8.2"
   },
   "devDependencies": {
     "grunt-bower-task": "~0.3.4"
