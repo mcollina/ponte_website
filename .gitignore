@@ -38,3 +38,4 @@ docs
 coverage
 bower_components/
 dist/
+build/
