@@ -83,6 +83,25 @@ module.exports = function(grunt) {
       less: {
         files: 'assets/**/*.less',
         tasks: ['less:development']
+      },
+      pages: {
+        files: 'pages/**/*',
+        tasks: ['copy']
+      }
+    },
+    copy: {
+      font_awesome: {
+        expand: true,
+        flatten: true,
+        src: ['bower_components/font-awesome/fonts/*'],
+        dest: 'build/font/'
+      },
+      pages: {
+        expand: true,
+        flatten: true,
+        cwd: 'pages/',
+        src: '**',
+        dest: 'build/'
       }
     }
   });
@@ -94,9 +113,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['bower', 'concat', 'jshint', 'less:development']);
+  grunt.registerTask('default', ['bower', 'concat', 'jshint', 'less:development', 'copy']);
 
   // Production task
   grunt.registerTask('production', ['default', 'uglify', 'less:production']);
