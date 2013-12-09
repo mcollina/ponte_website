@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Matteo Collina">
     <link rel="shortcut icon" href="./imgs/favicon.ico">
 
     <title>Ponte - Bringing Things to REST developers</title>
     
-    <link href="css/main.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -21,8 +21,7 @@
 
   <body>
 
-    <!--
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,22 +30,33 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Ponte</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#install">Install</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#api">API</a></li>
+          </ul>
         </div>
       </div>
     </div>
-    -->
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <a href="http://www.eclipse.org/projects/what-is-incubation.php" target="_blank"><img class="visible-mg visible-lg pull-right incubating" src="imgs/incubation.png" alt="Eclipse Incubation egg"></a>
         <img class="img-responsive" src="imgs/logo-banner-black.png">
+        <div class="pull-right">
+          <a class="btn btn-lg btn-primary" href="https://dev.eclipse.org/mailman/listinfo/ponte-dev" role="button">Subscribe to the Mailing List »</a>
+          &nbsp;
+          <a class="btn btn-lg btn-primary" href="#install" role="button">Install »</a>
+        </div>
       </div>
     </div>
 
     <div class="container">
-      <!-- Example row of columns -->
       <div class="assets">
         <div class="element">
           <div class="icon">
@@ -61,7 +71,7 @@
             Thanks to MQTT-over-Websockets, your users can too!
           </p>
 
-          <a class="btn btn-lg btn-primary" href="#api" role="button">Learn more »</a>
+          <a class="btn btn-lg btn-primary" href="#architecture" role="button">Learn more »</a>
         </div>
 
         <div class="element">
@@ -106,18 +116,95 @@
 
       <hr>
 
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2><a name="install">Install</a></h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            The current implementation of Ponte is built on top of
+            the <a href="http://nodejs.org/" target="_blank">Node.js</a>
+            framework that provides a fast event-loop.
+            As an Eclipse project, we aim to have multiple implemantions of the same
+            concepts, and the node.js implementation is the first.
+          </div>
+          <div class="col-md-4">
+            <p>
+              After installing node.js v0.10, just install the latest version from
+              <a href="http://npmjs.org/package/ponte" target="_blanck">NPM</a>:
+            </p>
+            <code>
+              $ npm install ponte -g
+              $ ponte
+            </code>
+            <p>
+              See the <a href="http://npmjs.org/package/ponte" target="_blanck">README</a>
+              for the full docs.
+          </div>
+          <div class="col-md-4">
+            <img class="img-responsive" src="imgs/nodejs.png">
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2><a name="architecture">Architecture</a></h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p>
+              The diagram on the left shows Ponte's architecture.
+              Ponte bridges three different application protocols:
+              HTTP, MQTT and CoAP.
+              The Internet of Things is about real-world events,
+              so Ponte is based on some of most powerful
+              publish/subscribe brokers:
+            </p>
+            <ul>
+              <li><a href="http://www.rabbitmq.com/">RabbitMQ</a> and all implementations of
+              the <a href="http://www.amqp.org/">AMQP</a> protocol.</li>
+              <li><a href="http://redis.io/">Redis</a>, the fabulous key/value store by
+              <a href="https://github.com/antirez">@antirez</a>.</li>
+              <li><a href="http://mosquitto.org/">Mosquitto</a> and all implementations of the
+              <a href="http://mqtt.org/">MQTT</a> protocol.</li>
+              <li><a href="http://www.mongodb.org/">MongoDB</a>, the documental NoSQL that
+              is revolutioning how web apps are built.</li>
+            </ul>
+            <p>
+              The Web is about accessing syndicated data: after a payload
+              is published, it must be retained for supporting standard
+              HTTP/REST access.
+              Ponte supports <a href="http://www.mongodb.org/">MongoDB</a>,
+              <a href="http://redis.io/">Redis</a>, and
+              <a href="http://leveldb.googlecode.com/">LevelDB</a> as
+              storage engines.
+            </p>
+
+          </div>
+          <div class="col-md-1">
+            <br>
+          </div>
+          <div class="col-md-6">
+            <img class="img-responsive" src="imgs/architecture.png">
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>&copy; Eclipse Foundation 2013</p>
       </footer>
     </div> <!-- /container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    -->
+    <script src="./js/ponte_website.js"></script>
   </body>
 </html>

@@ -18,7 +18,11 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['assets/js/<%= pkg.name %>.js'],
+        src: [
+          'bower_components/jquery/jquery.js',
+          'bower_components/bootstrap/dist/js/bootstrap.js',
+          'assets/js/<%= pkg.name %>.js'
+        ],
         dest: 'build/js/<%= pkg.name %>.js'
       }
     },
@@ -98,7 +102,7 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         src: ['bower_components/font-awesome/fonts/*'],
-        dest: 'build/font/'
+        dest: 'build/fonts/'
       },
       pages: {
         expand: true,
