@@ -169,15 +169,40 @@
         <div class="row">
           <div class="col-md-4">
             <h2>HTTP API</h2>
-            <p>...to be documented...</p>
+            <p>
+              HTTP is an implementation of the REST pattern, where a resource can be
+              manipulated using standard verbs: GET, PUT, POST and DELETE.
+              This allows to syndicate the things resources in a very straighforward way over a
+              database, by indexing their URIs.<br>
+              Each thing is available at: <code>http://&#60;your ponte&#62;/resources/&#60;your thing&#62;</code>
+            </p>
           </div>
           <div class="col-md-4">
             <h2>MQTT API</h2>
-            <p>...to be documented...</p>
+            <p>
+              <a href="http://mqtt.org" target="_blank">MQTT</a>
+              is an implementation of the publish/subscribe pattern.
+              Ponte is based on
+              <a href="http://github.com/mcollina/mosca">Mosca</a>
+              which implements most of the MQTT 3.1 spec.
+              In order to syndicate a value for HTTP access, publish
+              with the 'retain' flag.
+              Subscribe to your things to receive live updates.
+              Each thing is available at: <code>mqtt://&#60;your ponte&#62;/&#60;your thing&#62;</code>
+            </p>
           </div>
           <div class="col-md-4">
             <h2>CoAP API</h2>
-            <p>...to be documented...</p>
+            <p>
+              <a href="http://datatracker.ietf.org/doc/draft-ietf-core-coap/">CoAP</a>
+              is an implementation of the REST pattern on the UDP protocol,
+              where a resource can be manipulated using standard verbs: GET, PUT, POST and DELETE.
+              This allows to syndicate the things resources in a very straighforward way over a
+              database, by indexing their URIs.
+              Ponte fully supports the <a href="http://tools.ietf.org/html/draft-ietf-core-observe-04">observe</a>
+              spec, to receive live updates from you things.
+              Each thing is available at: <code>coap://&#60;your ponte&#62;/r/&#60;your thing&#62;</code>
+            </p>
           </div>
         </div>
       </div>
