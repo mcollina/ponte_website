@@ -118,7 +118,15 @@ module.exports = function(grunt) {
         src: '**',
         dest: 'build/imgs/'
       }
-    }
+    },
+    git_deploy: {
+      ghpages: {
+        options: {
+          url: 'git@github.com:mcollina/ponte_website.git'
+        },
+        src: 'build'
+      }
+    },
   });
 
   // These plugins provide necessary tasks.
@@ -129,10 +137,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-git-deploy');
 
   // Default task(s).
   grunt.registerTask('default', ['bower', 'concat', 'jshint', 'less:development', 'copy']);
 
   // Production task
   grunt.registerTask('production', ['default', 'uglify', 'less:production']);
+
+  // deploy dev
+  grunt.registerTask('deploy-dev', ['production', 'git_deploy:ghpages']);
 };

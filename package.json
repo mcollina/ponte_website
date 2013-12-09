@@ -19,6 +19,7 @@
     "grunt-contrib-copy": "~0.4.1"
   },
   "devDependencies": {
-    "grunt-bower-task": "~0.3.4"
+    "grunt-bower-task": "~0.3.4",
+    "grunt-git-deploy": "~0.1.1"
   }
 }
