@@ -87,6 +87,10 @@ module.exports = function(grunt) {
       pages: {
         files: 'pages/**/*',
         tasks: ['copy']
+      },
+      images: {
+        files: 'pages/**/*',
+        tasks: ['copy']
       }
     },
     copy: {
@@ -102,6 +106,13 @@ module.exports = function(grunt) {
         cwd: 'pages/',
         src: '**',
         dest: 'build/'
+      },
+      images: {
+        expand: true,
+        flatten: true,
+        cwd: 'assets/imgs',
+        src: '**',
+        dest: 'build/imgs/'
       }
     }
   });
