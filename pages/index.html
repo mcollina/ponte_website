@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <link rel="shortcut icon" href="./imgs/favicon.ico">
 
     <title>Ponte - Bringing Things to REST developers</title>
     
@@ -40,28 +40,67 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <img src="imgs/logo-banner-black.png">
-        <a href="http://www.eclipse.org/projects/what-is-incubation.php" target="_blank"><img class="hidden-phone pull-right" src="imgs/incubation.png" style="margin-top: 70px; opacity: 0.2;" alt="Eclipse Incubation egg"></a>
+        <a href="http://www.eclipse.org/projects/what-is-incubation.php" target="_blank"><img class="visible-mg visible-lg pull-right incubating" src="imgs/incubation.png" alt="Eclipse Incubation egg"></a>
+        <img class="img-responsive" src="imgs/logo-banner-black.png">
       </div>
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <div class="assets">
+        <div class="element">
+          <div class="icon">
+            <i class="fa fa-random"></i>
+          </div>
+
+          <h2>Protocols</h2>
+          <p>
+            Ponte allows you to publish and receive the data using any protocol: HTTP, MQTT and CoAP.
+            You can mix and match: submit with CoAP and subscribe via MQTT.
+            Thanks to MQTT subscribes and CoAP observe, your devices can get updated in real-time.
+            Thanks to MQTT-over-Websockets, your users can too!
+          </p>
+
+          <a class="btn btn-lg btn-primary" href="#api" role="button">Learn more »</a>
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+
+        <div class="element">
+          <div class="icon">
+            <i class="fa fa-bars"></i>
+          </div>
+
+          <h2>Data Formats</h2>
+          <p>
+            Ponte aims to convert multiple data formats, you will be able to publish your data in JSON,
+            MsgPack, Byson, BSON and XML. Need another one? Use HTTP accept queries to get another version.
+          </p>
+
+          <div class="to-be-done">
+            <i class="fa fa-cogs"></i>
+            <p>
+              We are building it..
+            </p>
+          </div>
        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="element">
+
+          <div class="icon">
+            <i class="fa fa-lock"></i>
+          </div>
+
+          <h2>Security and Privacy</h2>
+
+          <p>
+            Ponte will help you, the developer, in building a user-driven security solution to support the communication between all these devices.
+            Thanks to Ponte, there will be no need to prepare a custom authentication for your things, and another for your users.
+          </p>
+
+          <div class="to-be-done">
+            <i class="fa fa-cogs"></i>
+            <p>
+              We are building it..
+            </p>
+          </div>
         </div>
       </div>
 

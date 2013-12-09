@@ -54,3 +54,48 @@
 .jumbotron {
   background: black;
 }
+
+.incubating {
+  opacity: 0.2;
+  margin-top: 70px;
+}
+
+.assets {
+  .make-row();
+  .text-center();
+
+  .icon {
+    border: 2px solid;
+    border-radius: 200px;
+    font-size: 120px;
+    margin-left: 90px;
+    margin-right: 90px;
+
+    .visible-lg();
+  }
+  
+  .element {
+    .make-md-column(4);
+
+    p {
+      .text-left();
+    }
+
+    .to-be-done {
+      padding-top: 10px;
+
+      i {
+        font-size: 42px;
+      }
+
+      p {
+        padding-top: 10px;
+        .text-center();
+      }
+    }
+
+    .btn {
+      margin-top: 20px;
+    }
+  }
+}
