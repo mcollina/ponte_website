@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'build/js/<%= pkg.name %>.min.js'
+        dest: '<%= concat.dist.dest %>'
       }
     },
     less: {
