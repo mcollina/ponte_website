@@ -39,3 +39,4 @@ coverage
 bower_components/
 dist/
 build/
+prod-env/
